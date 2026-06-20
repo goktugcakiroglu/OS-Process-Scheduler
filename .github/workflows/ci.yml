@@ -20,17 +20,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Find and Compile Java Files
+    - name: Compile All Java Files
       run: |
+        # Tüm kaynak ve test dosyalarını tek seferde derliyoruz
         find . -name "*.java" > sources.txt
-        if [ -s sources.txt ]; then
-          javac @sources.txt
-        else
-          echo "No Java files found to compile!"
-          exit 1
-        fi
+        javac @sources.txt
 
-    - name: Run Unit Tests
+    - name: Run Scheduler Unit Tests
       run: |
-        # Eğer Maven projesiyse 'mvn test' yazılırdı ama düz java
-        echo "Running Unit Tests..."
+        # Derlenen test sınıfını classpath belirterek koşturuyoruz
+        java -cp . src/test/java/SchedulerTest.java
