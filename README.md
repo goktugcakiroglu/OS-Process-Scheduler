@@ -58,8 +58,10 @@ public class SchedulerTest {
 }
 EOF
 
-# README.md dosyasını tamamen yenile
+# README.md dosyasını tamamen yenile+
+```
 cat << 'EOF' > README.md
+```
 # OS Process Scheduler Simulator (Java & Swing)
 
 **Course:** COE 302 — Operating Systems Assignment 3  
@@ -75,7 +77,7 @@ A comprehensive, custom-built CPU Scheduling Simulator developed in Java. This p
 
 The simulator architecture strictly follows the **Model-View-Controller (MVC)** pattern to decouple the visualization layer from the core execution. The implementation utilizes the **Strategy Pattern** to dynamically switch between scheduling algorithms at runtime without altering the main simulation loop.
 
-\`\`\`mermaid
+```mermaid
 graph TD
     subgraph View [View Layer - Swing UI]
         GUI[SimulatorGUI] --> Gantt[GanttPanel - Dual-Row Visualizer]
@@ -99,7 +101,7 @@ graph TD
     StratInterface <|-- FCFS
     StratInterface <|-- RR
     StratInterface <|-- STCF
-\`\`\`
+```
 
 ## Requirements
 
@@ -115,30 +117,30 @@ This project includes a continuous integration pipeline powered by **GitHub Acti
 
 ### 🧪 Running Unit Tests Manually
 To execute the built-in scheduling algorithm verification tests:
-\`\`\`bash
+```bash
 find . -name "*.java" > sources.txt && javac @sources.txt
 java -cp . src/test/java/SchedulerTest.java
-\`\`\`
+```
 
 ### 🚀 Launching the Application
 1. Clone the repository and navigate to the project folder:
-\`\`\`bash
+```bash
 git clone https://github.com/goktugcakiroglu/OS-Process-Scheduler.git
 cd OS-Process-Scheduler
-\`\`\`
+```
 
 2. Compile the Java files:
-\`\`\`bash
+```bash
 javac *.java
-\`\`\`
+```
 
 3. Execute the application:
-\`\`\`bash
+```bash
 java SimulatorGUI
-\`\`\`
+```
 
 ## How It Works
-The core simulation engine (\`SimulationEngine\`) continuously manages independent Ready and I/O queues at each discrete "tick". It safely routes processes through their multi-phase lifecycle states:
+The core simulation engine (`SimulationEngine`) continuously manages independent Ready and I/O queues at each discrete "tick". It safely routes processes through their multi-phase lifecycle states:
 
 $$\text{CPU Burst 1} \longrightarrow \text{I/O Burst} \longrightarrow \text{CPU Burst 2}$$
 
@@ -165,7 +167,7 @@ We conducted a critical evaluation using a specific dataset with varying arrival
 * **Round Robin (Quantum Impact):** We proved that a larger quantum reduces the frequency of context switches, pushing the RR behavior closer to FCFS. Changing the Quantum from 2 to 4 decreased the Average Waiting Time from 5.00 to 4.67 units.
 
 ## Project Structure
-\`\`\`text
+```text
 OS-Process-Scheduler/
 ├── .github/workflows/
 │   └── ci.yml               # GitHub Actions CI Configuration
@@ -181,7 +183,8 @@ OS-Process-Scheduler/
 ├── InputPanel.java          # Configuration and data entry UI
 ├── GanttPanel.java          # Custom Dual-Row Graphics2D rendering
 └── StatsPanel.java          # Metrics calculation and table rendering
-\`\`\`
+```
 EOF
-
+```
 echo "=== GUNCELLEME TAMAMLANDI ==="
+```
