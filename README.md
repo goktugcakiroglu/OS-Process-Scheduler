@@ -20,9 +20,11 @@ graph TD
         GUI --> Input[InputPanel]
         GUI --> Stats[StatsPanel]
     end
+
     subgraph Controller [Controller Layer]
         Engine[SimulationEngine]
     end
+
     subgraph Model [Model / Strategy Layer]
         Proc[Process Class]
         StratInterface["<< Interface >> <br> SchedulingStrategy"]
@@ -30,6 +32,7 @@ graph TD
         RR[RRStrategy]
         STCF[STCFStrategy]
     end
+
     GUI -->|Triggers Actions| Engine
     Engine -->|Updates State & Repaints| GUI
     Engine -->|Manages| Proc
