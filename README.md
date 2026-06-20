@@ -1,7 +1,10 @@
-# Klasörleri oluştur
+```Bash
+# Klasör altyapısını güvenli bir şekilde oluştur
 mkdir -p .github/workflows src/test/java
+```
 
-# CI/CD Workflow dosyasını oluştur
+# 1. CI/CD WORKFLOW DOSYASI
+```
 cat << 'EOF' > .github/workflows/ci.yml
 name: Java CI
 on:
@@ -28,8 +31,9 @@ jobs:
       run: |
         java -cp . src/test/java/SchedulerTest.java
 EOF
-
-# Unit Test dosyasını oluştur
+```
+# 2. UNIT TEST DOSYASI
+```
 cat << 'EOF' > src/test/java/SchedulerTest.java
 import java.util.List;
 import java.util.ArrayList;
@@ -40,7 +44,6 @@ public class SchedulerTest {
             System.out.println("[SUCCESS] FCFS Strategy Test Passed.");
             System.exit(0);
         } catch (Exception e) {
-            System.err.println("[FAILURE] FCFS Strategy Test Failed!");
             e.printStackTrace();
             System.exit(1);
         }
@@ -59,9 +62,14 @@ public class SchedulerTest {
     }
 }
 EOF
+```
 
-# README.md dosyasını tamamen yenile
+# 3. YEKPARE VE TAMAMEN DUZELTILMIS README.MD
+
+```
 cat << 'EOF' > README.md
+```
+
 # OS Process Scheduler Simulator (Java & Swing)
 
 **Course:** COE 302 — Operating Systems Assignment 3  
@@ -101,6 +109,7 @@ graph TD
     StratInterface <|-- FCFS
     StratInterface <|-- RR
     StratInterface <|-- STCF
+```
 
 ## Requirements
 
