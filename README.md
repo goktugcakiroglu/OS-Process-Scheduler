@@ -33,11 +33,20 @@ graph TD
         STCF[STCFStrategy]
     end
 
-    %% Relationships
+    %% View & Controller Interaction
     GUI -->|Triggers Actions| Engine
     Engine -->|Updates State & Repaints| GUI
+
+    %% Controller & Model Separation
     Engine -->|Manages| Proc
     Engine -->|Executes current| StratInterface
+
+    %% Explicit Vertical Spacing for Strategies
+    StratInterface --- FCFS
+    StratInterface --- RR
+    StratInterface --- STCF
+
+    %% Strategy Implementations
     FCFS -->|Implements| StratInterface
     RR -->|Implements| StratInterface
     STCF -->|Implements| StratInterface
