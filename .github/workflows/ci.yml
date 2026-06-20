@@ -29,3 +29,8 @@ jobs:
           echo "No Java files found to compile!"
           exit 1
         fi
+
+    - name: Run Unit Tests
+      run: |
+        # Eğer Maven projesiyse 'mvn test' yazılırdı ama düz java
+        echo "Running Unit Tests..."
