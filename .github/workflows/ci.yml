@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI
 
 on:
   push:
@@ -20,8 +20,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    <br>
-    - name: Compile Java Files
+    - name: Find and Compile Java Files
       run: |
         find . -name "*.java" > sources.txt
-        javac @sources.txt
+        if [ -s sources.txt ]; then
+          javac @sources.txt
+        else
+          echo "No Java files found to compile!"
+          exit 1
+        fi
