@@ -37,8 +37,10 @@ public class SchedulerTest {
     public static void main(String[] args) {
         try {
             testFCFSSchedulingOrder();
+            System.out.println("[SUCCESS] FCFS Strategy Test Passed.");
             System.exit(0);
         } catch (Exception e) {
+            System.err.println("[FAILURE] FCFS Strategy Test Failed!");
             e.printStackTrace();
             System.exit(1);
         }
@@ -58,10 +60,8 @@ public class SchedulerTest {
 }
 EOF
 
-# README.md dosyasını tamamen yenile+
-```
+# README.md dosyasını tamamen yenile
 cat << 'EOF' > README.md
-```
 # OS Process Scheduler Simulator (Java & Swing)
 
 **Course:** COE 302 — Operating Systems Assignment 3  
@@ -89,7 +89,7 @@ graph TD
     end
     subgraph Model [Model / Strategy Layer]
         Proc[Process Class]
-        StratInterface[<< Interface >> <br> SchedulingStrategy]
+        StratInterface["<< Interface >> <br> SchedulingStrategy"]
         FCFS[FCFSStrategy]
         RR[RRStrategy]
         STCF[STCFStrategy]
@@ -101,7 +101,6 @@ graph TD
     StratInterface <|-- FCFS
     StratInterface <|-- RR
     StratInterface <|-- STCF
-```
 
 ## Requirements
 
