@@ -1,4 +1,4 @@
-# OS Process Scheduler Simulator (Java & Swing)
+## OS Process Scheduler Simulator (Java & Swing)
 
 **Course:** COE 302 — Operating Systems Assignment 3  
 **University:** İstanbul Sağlık ve Teknoloji Üniversitesi  
@@ -33,13 +33,14 @@ graph TD
         STCF[STCFStrategy]
     end
 
+    %% Relationships
     GUI -->|Triggers Actions| Engine
     Engine -->|Updates State & Repaints| GUI
     Engine -->|Manages| Proc
     Engine -->|Executes current| StratInterface
-    StratInterface <|-- FCFS
-    StratInterface <|-- RR
-    StratInterface <|-- STCF
+    FCFS -->|Implements| StratInterface
+    RR -->|Implements| StratInterface
+    STCF -->|Implements| StratInterface
 ```
 
 ## Requirements
